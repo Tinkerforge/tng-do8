@@ -1,0 +1,18 @@
+Needs["NETLink`"]
+LoadNETAssembly["Tinkerforge",NotebookDirectory[]<>"../../.."]
+
+host="localhost"
+port=4223
+uid="XYZ"(*Change XYZ to the UID of your TNG DO8*)
+
+(*Create IPConnection and device object*)
+ipcon=NETNew["Tinkerforge.IPConnection"]
+do8=NETNew["Tinkerforge.TNGDO8",uid,ipcon]
+ipcon@Connect[host,port]
+
+do8@SetValue[{True,False,True,False,True,False,True,False}]
+
+(*Clean up*)
+ipcon@Disconnect[]
+ReleaseNETObject[do8]
+ReleaseNETObject[ipcon]
