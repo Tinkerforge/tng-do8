@@ -13,7 +13,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     ipcon.connect((HOST, PORT)).recv()??; // Connect to brickd.
                                           // Don't use device before ipcon is connected.
 
-    do8.set_value([true, false, true, false, true, false, true, false]);
+    do8.set_value(0, [true, false, true, false, true, false, true, false]);
 
     println!("Press enter to exit.");
     let mut _input = String::new();

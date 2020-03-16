@@ -15,7 +15,7 @@ if __name__ == "__main__":
     ipcon.connect(HOST, PORT) # Connect to brickd
     # Don't use device before ipcon is connected
 
-    do8.set_value([True, False, True, False, True, False, True, False])
+    do8.set_value(0, [True, False, True, False, True, False, True, False])
 
     input("Press key to exit\n") # Use raw_input() in Python 2
     ipcon.disconnect()

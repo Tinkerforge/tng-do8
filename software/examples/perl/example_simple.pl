@@ -14,7 +14,7 @@ my $do8 = Tinkerforge::TNGDO8->new(&UID, $ipcon); # Create device object
 $ipcon->connect(&HOST, &PORT); # Connect to brickd
 # Don't use device before ipcon is connected
 
-$do8->set_value([1, 0, 1, 0, 1, 0, 1, 0]);
+$do8->set_value(0, [1, 0, 1, 0, 1, 0, 1, 0]);
 
 print "Press key to exit\n";
 <STDIN>;

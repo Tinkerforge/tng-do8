@@ -23,8 +23,8 @@ int main(void) {
 	}
 	// Don't use device before ipcon is connected
 
-	bool timestamp[8] = {true, false, true, false, true, false, true, false};
-	do8_set_value(&do8, timestamp);
+	bool value[8] = {true, false, true, false, true, false, true, false};
+	do8_set_value(&do8, 0, value);
 
 	printf("Press key to exit\n");
 	getchar();

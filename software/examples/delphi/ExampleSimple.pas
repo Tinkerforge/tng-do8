@@ -35,7 +35,7 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
-  do8.SetValue([true, false, true, false, true, false, true, false]);
+  do8.SetValue(0, [true, false, true, false, true, false, true, false]);
 
   WriteLn('Press key to exit');
   ReadLn;

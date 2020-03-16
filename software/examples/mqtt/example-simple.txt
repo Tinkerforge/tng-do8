@@ -1,4 +1,4 @@
 # Change XYZ to the UID of your TNG DO8
 
 setup:
-	publish '{"timestamp": [true,false,true,false,true,false,true,false]}' to tinkerforge/request/do8_tng/XYZ/set_value 
+	publish '{"timestamp": 0, "value": [true,false,true,false,true,false,true,false]}' to tinkerforge/request/do8_tng/XYZ/set_value
