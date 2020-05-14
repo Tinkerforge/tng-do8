@@ -1,7 +1,7 @@
 /* tng-do8
  * Copyright (C) 2019 Olaf Lüke <olaf@tinkerforge.com>
  *
- * config_driver.h: Configuration for TBD
+ * config_do8.h: Configuration for 8 digital outputs 
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-#ifndef CONFIG_DRIVER_H
-#define CONFIG_DRIVER_H
+#ifndef CONFIG_DO8_H
+#define CONFIG_DO8_H
 
 #endif

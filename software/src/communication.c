@@ -27,6 +27,10 @@
 TNGHandleMessageResponse handle_message(const void *message, void *response) {
 	switch(tfp_get_fid_from_message(message)) {
 		case FID_SET_VALUE: return set_value(message);
+		case FID_GET_VALUE: return get_value(message, response);
+		case FID_SET_SELECTED_VALUE: return set_selected_value(message);
+		case FID_GET_SELECTED_VALUE: return get_selected_value(message, response);
+		case FID_SET_QUEUE_VALUE: return set_queue_value(message, response);
 		default: return HANDLE_MESSAGE_RESPONSE_NOT_SUPPORTED;
 	}
 }
@@ -37,14 +41,37 @@ TNGHandleMessageResponse set_value(const SetValue *data) {
 	return HANDLE_MESSAGE_RESPONSE_EMPTY;
 }
 
+TNGHandleMessageResponse get_value(const GetValue *data, GetValue_Response *response) {
+	response->header.length = sizeof(GetValue_Response);
+
+	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
+}
+
+TNGHandleMessageResponse set_selected_value(const SetSelectedValue *data) {
+
+	return HANDLE_MESSAGE_RESPONSE_EMPTY;
+}
+
+TNGHandleMessageResponse get_selected_value(const GetSelectedValue *data, GetSelectedValue_Response *response) {
+	response->header.length = sizeof(GetSelectedValue_Response);
+
+	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
+}
+
+TNGHandleMessageResponse set_queue_value(const SetQueueValue *data, SetQueueValue_Response *response) {
+	response->header.length = sizeof(SetQueueValue_Response);
+
+	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
+}
+
 
 
 
 
 void communication_tick(void) {
-	communication_callback_tick();
+//	communication_callback_tick();
 }
 
 void communication_init(void) {
-	communication_callback_init();
+//	communication_callback_init();
 }

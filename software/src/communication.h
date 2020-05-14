@@ -42,17 +42,61 @@ void communication_init(void);
 
 // Function and callback IDs and structs
 #define FID_SET_VALUE 1
+#define FID_GET_VALUE 2
+#define FID_SET_SELECTED_VALUE 3
+#define FID_GET_SELECTED_VALUE 4
+#define FID_SET_QUEUE_VALUE 5
 
+
+typedef struct {
+	TFPMessageHeader header;
+	uint8_t value[1];
+} __attribute__((__packed__)) SetValue;
+
+typedef struct {
+	TFPMessageHeader header;
+} __attribute__((__packed__)) GetValue;
+
+typedef struct {
+	TFPMessageHeader header;
+	uint8_t value[1];
+} __attribute__((__packed__)) GetValue_Response;
+
+typedef struct {
+	TFPMessageHeader header;
+	uint8_t channel;
+	bool value;
+} __attribute__((__packed__)) SetSelectedValue;
+
+typedef struct {
+	TFPMessageHeader header;
+	uint8_t channel;
+} __attribute__((__packed__)) GetSelectedValue;
+
+typedef struct {
+	TFPMessageHeader header;
+	bool value;
+} __attribute__((__packed__)) GetSelectedValue_Response;
 
 typedef struct {
 	TFPMessageHeader header;
 	uint64_t timestamp;
 	uint8_t value[1];
-} __attribute__((__packed__)) SetValue;
+	uint8_t mask[1];
+} __attribute__((__packed__)) SetQueueValue;
+
+typedef struct {
+	TFPMessageHeader header;
+	uint8_t queue_status;
+} __attribute__((__packed__)) SetQueueValue_Response;
 
 
 // Function prototypes
 TNGHandleMessageResponse set_value(const SetValue *data);
+TNGHandleMessageResponse get_value(const GetValue *data, GetValue_Response *response);
+TNGHandleMessageResponse set_selected_value(const SetSelectedValue *data);
+TNGHandleMessageResponse get_selected_value(const GetSelectedValue *data, GetSelectedValue_Response *response);
+TNGHandleMessageResponse set_queue_value(const SetQueueValue *data, SetQueueValue_Response *response);
 
 // Callbacks
 

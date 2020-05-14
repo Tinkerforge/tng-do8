@@ -1,7 +1,7 @@
 /* tng-do8
  * Copyright (C) 2019 Olaf Lüke <olaf@tinkerforge.com>
  *
- * driver.c: Driver for TBD
+ * do8.h: Driver for 8 digital outputs
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,27 +19,19 @@
  * Boston, MA 02111-1307, USA.
  */
 
-#include "driver.h"
+#ifndef DO8_H
+#define DO8_H
 
-#include "configs/config_driver.h"
-#include "bricklib2/os/coop_task.h"
-#include "bricklib2/logging/logging.h"
+#include <stdint.h>
+#include <stdbool.h>
 
-Driver driver;
-CoopTask driver_task;
+typedef struct {
 
-void driver_task_tick(void) {
-	while(true) {
-		coop_task_sleep_ms(1);
-	}
-}
+} DO8;
 
-void driver_init(void) {
-	memset(&driver, 0, sizeof(Driver));
+extern DO8 do8;
 
-	coop_task_init(&driver_task, driver_task_tick);
-}
+void do8_tick(void);
+void do8_init(void);
 
-void driver_tick(void) {
-	coop_task_tick(&driver_task);
-}
+#endif

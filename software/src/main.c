@@ -24,16 +24,16 @@
 #include "bricklib2/tng/tng.h"
 #include "bricklib2/logging/logging.h"
 
-#include "driver.h"
+#include "do8.h"
 
 int main(void) {
 	logging_init();
 	logd("Start TNG DO8\n\r");
 
-	driver_init();
+	do8_init();
 
 	while(true) {
 		tng_tick();
-		driver_tick();
+		do8_tick();
 	}
 }
