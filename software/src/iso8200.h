@@ -1,7 +1,7 @@
 /* tng-do8
- * Copyright (C) 2019 Olaf Lüke <olaf@tinkerforge.com>
+ * Copyright (C) 2019-2020 Olaf Lüke <olaf@tinkerforge.com>
  *
- * main.c: Initialization for TNG DO8
+ * iso8200.h: Driver for 8 digital outputs
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,25 +19,26 @@
  * Boston, MA 02111-1307, USA.
  */
 
+#ifndef ISO8200_H
+#define ISO8200_H
+
 #include "configs/config.h"
-#include "configs/config_iso8200.h"
 
-#include "bricklib2/tng/tng.h"
-#include "bricklib2/logging/logging.h"
+#define ISO8200_CHANNEL_NUM 8
 
-#include "do8.h"
-#include "iso8200.h"
+#include <stdint.h>
+#include <stdbool.h>
 
-int main(void) {
-	logging_init();
-	logd("Start TNG DO8\n\r");
+typedef struct {
+    uint8_t value;
+    uint8_t fault;
 
-//	do8_init();
-	iso8200_init();
+    SPI_HandleTypeDef spi;
+} ISO8200;
 
-	while(true) {
-		tng_tick();
-		iso8200_tick();
-//		do8_tick();
-	}
-}
+extern ISO8200 iso8200;
+
+void iso8200_tick(void);
+void iso8200_init(void);
+
+#endif

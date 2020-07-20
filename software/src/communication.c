@@ -1,5 +1,5 @@
 /* tng-do8
- * Copyright (C) 2019 Olaf Lüke <olaf@tinkerforge.com>
+ * Copyright (C) 2020 Olaf Lüke <olaf@tinkerforge.com>
  *
  * communication.c: TFP protocol message handling
  *
@@ -23,43 +23,55 @@
 
 #include "bricklib2/utility/communication_callback.h"
 #include "bricklib2/protocols/tfp/tfp.h"
+#include "bricklib2/tng/usb_stm32/usb.h"
+
+#include "iso8200.h"
 
 TNGHandleMessageResponse handle_message(const void *message, void *response) {
 	switch(tfp_get_fid_from_message(message)) {
-		case FID_SET_VALUE: return set_value(message);
-		case FID_GET_VALUE: return get_value(message, response);
+		case FID_SET_VALUES: return set_values(message);
+		case FID_GET_VALUES: return get_values(message, response);
 		case FID_SET_SELECTED_VALUE: return set_selected_value(message);
 		case FID_GET_SELECTED_VALUE: return get_selected_value(message, response);
-		case FID_SET_QUEUE_VALUE: return set_queue_value(message, response);
 		default: return HANDLE_MESSAGE_RESPONSE_NOT_SUPPORTED;
 	}
 }
 
 
-TNGHandleMessageResponse set_value(const SetValue *data) {
+TNGHandleMessageResponse set_values(const SetValues *data) {
+	iso8200.value = data->values[0];
 
 	return HANDLE_MESSAGE_RESPONSE_EMPTY;
 }
 
-TNGHandleMessageResponse get_value(const GetValue *data, GetValue_Response *response) {
-	response->header.length = sizeof(GetValue_Response);
+TNGHandleMessageResponse get_values(const GetValues *data, GetValues_Response *response) {
+	response->header.length = sizeof(GetValues_Response);
+	response->values[0]     = iso8200.value;
 
 	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
 }
 
 TNGHandleMessageResponse set_selected_value(const SetSelectedValue *data) {
+	if(data->channel >= ISO8200_CHANNEL_NUM) {
+		return HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER;
+	}
+
+	if(data->value) {
+		iso8200.value |= (1 << data->channel);
+	} else {
+		iso8200.value &= (~(1 << data->channel));
+	}
 
 	return HANDLE_MESSAGE_RESPONSE_EMPTY;
 }
 
 TNGHandleMessageResponse get_selected_value(const GetSelectedValue *data, GetSelectedValue_Response *response) {
+	if(data->channel >= ISO8200_CHANNEL_NUM) {
+		return HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER;
+	}
+
 	response->header.length = sizeof(GetSelectedValue_Response);
-
-	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
-}
-
-TNGHandleMessageResponse set_queue_value(const SetQueueValue *data, SetQueueValue_Response *response) {
-	response->header.length = sizeof(SetQueueValue_Response);
+	response->value         = iso8200.value & (1 << data->channel);
 
 	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
 }
@@ -69,9 +81,7 @@ TNGHandleMessageResponse set_queue_value(const SetQueueValue *data, SetQueueValu
 
 
 void communication_tick(void) {
-//	communication_callback_tick();
 }
 
 void communication_init(void) {
-//	communication_callback_init();
 }

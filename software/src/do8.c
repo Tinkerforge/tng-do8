@@ -28,8 +28,6 @@
 DO8 do8;
 CoopTask do8_task;
 
-volatile bool test = false; // TODO: Remove this when we move from 072 to 070
-
 void do8_task_tick(void) {
 	while(true) {
 		coop_task_sleep_ms(1);
