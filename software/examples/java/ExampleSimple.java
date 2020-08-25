@@ -17,7 +17,7 @@ public class ExampleSimple {
 		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		do8.setValue(0, new boolean[]{true, false, true, false, true, false, true, false});
+		do8.setValues(0, new boolean[]{true, false, true, false, true, false, true, false});
 
 		System.out.println("Press key to exit"); System.in.read();
 		ipcon.disconnect();

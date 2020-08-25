@@ -18,7 +18,7 @@ func main() {
 	defer ipcon.Disconnect()
 	// Don't use device before ipcon is connected.
 
-	do8.SetValue(0, [8]bool{true, false, true, false, true, false, true, false})
+	do8.SetValues(0, [8]bool{true, false, true, false, true, false, true, false})
 
 	fmt.Print("Press enter to exit.")
 	fmt.Scanln()

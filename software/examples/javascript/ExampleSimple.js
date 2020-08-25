@@ -16,7 +16,7 @@ ipcon.connect(HOST, PORT,
 
 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
     function (connectReason) {
-        do8.setValue(0, [true, false, true, false, true, false, true, false]);
+        do8.setValues(0, [true, false, true, false, true, false, true, false]);
     }
 );
 

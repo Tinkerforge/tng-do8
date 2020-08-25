@@ -16,7 +16,7 @@ $do8 = new TNGDO8(UID, $ipcon); // Create device object
 $ipcon->connect(HOST, PORT); // Connect to brickd
 // Don't use device before ipcon is connected
 
-$do8->setValue(0, array(TRUE, FALSE, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE));
+$do8->setValues(0, array(TRUE, FALSE, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE));
 
 echo "Press key to exit\n";
 fgetc(fopen('php://stdin', 'r'));

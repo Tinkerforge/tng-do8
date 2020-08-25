@@ -10,7 +10,7 @@ ipcon=NETNew["Tinkerforge.IPConnection"]
 do8=NETNew["Tinkerforge.TNGDO8",uid,ipcon]
 ipcon@Connect[host,port]
 
-do8@SetValue[0,{True,False,True,False,True,False,True,False}]
+do8@SetValues[0,{True,False,True,False,True,False,True,False}]
 
 (*Clean up*)
 ipcon@Disconnect[]

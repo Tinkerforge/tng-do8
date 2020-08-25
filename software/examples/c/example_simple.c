@@ -23,8 +23,8 @@ int main(void) {
 	}
 	// Don't use device before ipcon is connected
 
-	bool value[8] = {true, false, true, false, true, false, true, false};
-	do8_set_value(&do8, 0, value);
+	bool values[8] = {true, false, true, false, true, false, true, false};
+	do8_set_values(&do8, 0, values);
 
 	printf("Press key to exit\n");
 	getchar();

@@ -15,7 +15,7 @@ class Example
 		ipcon.Connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		do8.SetValue(0, new bool[]{true, false, true, false, true, false, true, false});
+		do8.SetValues(0, new bool[]{true, false, true, false, true, false, true, false});
 
 		Console.WriteLine("Press enter to exit");
 		Console.ReadLine();

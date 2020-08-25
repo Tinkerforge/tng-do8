@@ -13,8 +13,8 @@ Module ExampleSimple
         ipcon.Connect(HOST, PORT) ' Connect to brickd
         ' Don't use device before ipcon is connected
 
-        do8.SetValue(0, _
-                     new Boolean(){True, False, True, False, True, False, True, False})
+        do8.SetValues(0, _
+                      new Boolean(){True, False, True, False, True, False, True, False})
 
         Console.WriteLine("Press key to exit")
         Console.ReadLine()
