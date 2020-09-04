@@ -4,12 +4,12 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 2
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
+Title "TNG DO 8P"
+Date "2020-09-04"
+Rev "1.1"
+Comp "Tinkerforge GmbH"
+Comment1 "Licensed under CERN OHL v.1.1"
+Comment2 "Copyright (©) 2020, B.Nordmeyer <bastian@tinkerforge.com>"
 Comment3 ""
 Comment4 ""
 $EndDescr
@@ -339,7 +339,7 @@ F 1 "SMBJ24CA" V 3738 6978 40  0000 L CNN
 F 2 "kicad-libraries:SMB" H 3700 6900 60  0001 C CNN
 F 3 "" H 3700 6900 60  0000 C CNN
 	1    3700 6900
-	0    1    1    0   
+	0    -1   -1   0   
 $EndComp
 $Comp
 L tinkerforge:TVS D205
@@ -350,7 +350,7 @@ F 1 "SMBJ24CA" V 3838 6378 40  0000 L CNN
 F 2 "kicad-libraries:SMB" H 3800 6300 60  0001 C CNN
 F 3 "" H 3800 6300 60  0000 C CNN
 	1    3800 6300
-	0    1    1    0   
+	0    -1   -1   0   
 $EndComp
 Wire Wire Line
 	3800 6550 3800 7200
@@ -416,7 +416,7 @@ F 1 "SMBJ24CA" V 3738 5528 40  0000 L CNN
 F 2 "kicad-libraries:SMB" H 3700 5450 60  0001 C CNN
 F 3 "" H 3700 5450 60  0000 C CNN
 	1    3700 5450
-	0    1    1    0   
+	0    -1   -1   0   
 $EndComp
 $Comp
 L tinkerforge:TVS D206
@@ -427,7 +427,7 @@ F 1 "SMBJ24CA" V 3838 4928 40  0000 L CNN
 F 2 "kicad-libraries:SMB" H 3800 4850 60  0001 C CNN
 F 3 "" H 3800 4850 60  0000 C CNN
 	1    3800 4850
-	0    1    1    0   
+	0    -1   -1   0   
 $EndComp
 Wire Wire Line
 	3800 5100 3800 5750
@@ -455,7 +455,7 @@ F 1 "SMBJ24CA" V 3738 3978 40  0000 L CNN
 F 2 "kicad-libraries:SMB" H 3700 3900 60  0001 C CNN
 F 3 "" H 3700 3900 60  0000 C CNN
 	1    3700 3900
-	0    1    1    0   
+	0    -1   -1   0   
 $EndComp
 $Comp
 L tinkerforge:TVS D207
@@ -466,7 +466,7 @@ F 1 "SMBJ24CA" V 3838 3378 40  0000 L CNN
 F 2 "kicad-libraries:SMB" H 3800 3300 60  0001 C CNN
 F 3 "" H 3800 3300 60  0000 C CNN
 	1    3800 3300
-	0    1    1    0   
+	0    -1   -1   0   
 $EndComp
 Wire Wire Line
 	3800 3550 3800 4200
@@ -495,7 +495,7 @@ F 1 "SMBJ24CA" V 3738 2328 40  0000 L CNN
 F 2 "kicad-libraries:SMB" H 3700 2250 60  0001 C CNN
 F 3 "" H 3700 2250 60  0000 C CNN
 	1    3700 2250
-	0    1    1    0   
+	0    -1   -1   0   
 $EndComp
 $Comp
 L tinkerforge:TVS D208
@@ -506,7 +506,7 @@ F 1 "SMBJ24CA" V 3838 1728 40  0000 L CNN
 F 2 "kicad-libraries:SMB" H 3800 1650 60  0001 C CNN
 F 3 "" H 3800 1650 60  0000 C CNN
 	1    3800 1650
-	0    1    1    0   
+	0    -1   -1   0   
 $EndComp
 Wire Wire Line
 	3800 1900 3800 2550
@@ -687,23 +687,6 @@ F 3 "" H 8600 3000 60  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	3300 2000 3700 2000
-Wire Wire Line
-	3450 1400 3800 1400
-Wire Wire Line
-	3300 3650 3700 3650
-Wire Wire Line
-	3450 3050 3800 3050
-Wire Wire Line
-	3300 5200 3700 5200
-Wire Wire Line
-	3450 4600 3800 4600
-Wire Wire Line
-	3300 6650 3700 6650
-Wire Wire Line
-	3450 6050 3800 6050
-Connection ~ 3700 5200
-Wire Wire Line
 	6600 3350 6550 3350
 Wire Wire Line
 	6550 3350 6550 3300
@@ -763,22 +746,18 @@ Wire Wire Line
 Connection ~ 6550 3900
 Wire Wire Line
 	6550 3900 6550 3950
-Connection ~ 3800 3050
 Connection ~ 6550 4100
 Wire Wire Line
 	6550 4100 6550 4150
 Connection ~ 6550 4300
 Wire Wire Line
 	6550 4300 6550 4350
-Connection ~ 3700 3650
 Connection ~ 6550 4500
 Wire Wire Line
 	6550 4500 6550 4550
-Connection ~ 3800 1400
 Connection ~ 6550 4700
 Wire Wire Line
 	6550 4700 6550 4750
-Connection ~ 3700 2000
 $Comp
 L tinkerforge:Cs C202
 U 1 1 5DF927CC
@@ -1085,7 +1064,7 @@ U 1 1 5E121667
 P 8100 4150
 F 0 "R201" H 8153 4181 31  0000 L CNN
 F 1 "47k" H 8153 4119 31  0000 L CNN
-F 2 "kicad-libraries:R0603F" H 8100 4150 60  0001 C CNN
+F 2 "kicad-libraries:R0402F" H 8100 4150 60  0001 C CNN
 F 3 "" H 8100 4150 60  0000 C CNN
 	1    8100 4150
 	1    0    0    -1  
@@ -1149,7 +1128,7 @@ U 1 1 5E17761F
 P 8600 2750
 F 0 "D209" H 8600 2558 40  0000 C CNN
 F 1 "SMF3.3" H 8600 2634 40  0000 C CNN
-F 2 "kicad-libraries:SOD-123" H 8600 2619 60  0001 C CNN
+F 2 "kicad-libraries:SOD-123FL" H 8600 2619 60  0001 C CNN
 F 3 "" H 8600 2750 60  0000 C CNN
 	1    8600 2750
 	-1   0    0    1   
@@ -1202,37 +1181,24 @@ Wire Wire Line
 	8450 3350 8600 3350
 Wire Wire Line
 	8600 3250 8450 3250
-Connection ~ 3800 6050
-Connection ~ 3700 6650
-Connection ~ 3800 4600
-Wire Wire Line
-	4400 4600 3800 4600
 Connection ~ 3700 5750
 Wire Wire Line
 	4750 1400 4750 3300
-Wire Wire Line
-	3800 1400 4750 1400
 Connection ~ 4750 3300
 Wire Wire Line
 	4700 2000 4700 3500
 Wire Wire Line
 	4700 3500 5000 3500
-Wire Wire Line
-	3700 2000 4700 2000
 Connection ~ 5000 3500
 Wire Wire Line
 	4600 3050 4600 3700
 Wire Wire Line
 	4600 3700 5250 3700
-Wire Wire Line
-	3800 3050 4600 3050
 Connection ~ 5250 3700
 Wire Wire Line
 	5500 3900 4550 3900
 Wire Wire Line
 	4550 3900 4550 3650
-Wire Wire Line
-	3700 3650 4550 3650
 Connection ~ 5500 3900
 Wire Wire Line
 	5750 4100 4400 4100
@@ -1243,21 +1209,55 @@ Wire Wire Line
 	4450 5200 4450 4300
 Wire Wire Line
 	4450 4300 6000 4300
-Wire Wire Line
-	3700 5200 4450 5200
 Connection ~ 6000 4300
 Wire Wire Line
 	4550 6050 4550 4500
 Wire Wire Line
 	4550 4500 6250 4500
-Wire Wire Line
-	3800 6050 4550 6050
 Connection ~ 6250 4500
 Wire Wire Line
 	6500 4700 4600 4700
 Wire Wire Line
 	4600 4700 4600 6650
+Connection ~ 6500 4700
+Wire Wire Line
+	3450 1400 3800 1400
+Connection ~ 3800 1400
+Wire Wire Line
+	3800 1400 4750 1400
+Wire Wire Line
+	3300 2000 3700 2000
+Connection ~ 3700 2000
+Wire Wire Line
+	3700 2000 4700 2000
+Wire Wire Line
+	3450 3050 3800 3050
+Connection ~ 3800 3050
+Wire Wire Line
+	3800 3050 4600 3050
+Wire Wire Line
+	3300 3650 3700 3650
+Connection ~ 3700 3650
+Wire Wire Line
+	3700 3650 4550 3650
+Wire Wire Line
+	3450 4600 3800 4600
+Connection ~ 3800 4600
+Wire Wire Line
+	3800 4600 4400 4600
+Wire Wire Line
+	3300 5200 3700 5200
+Connection ~ 3700 5200
+Wire Wire Line
+	3700 5200 4450 5200
+Wire Wire Line
+	3450 6050 3800 6050
+Connection ~ 3800 6050
+Wire Wire Line
+	3800 6050 4550 6050
+Wire Wire Line
+	3300 6650 3700 6650
+Connection ~ 3700 6650
 Wire Wire Line
 	3700 6650 4600 6650
-Connection ~ 6500 4700
 $EndSCHEMATC
